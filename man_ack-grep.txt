@@ -1,0 +1,212 @@
+ack-grep options :
+
+   Menu
+	Config File .ackrc
+
+	Modify, add or delete types
+
+	Display context around the results
+
+	Only count the results
+
+  	Search in given file
+
+	Dry run on which files will be searched
+
+	Search in the path and filenames
+
+	Display the list of known file extensions (type)
+
+	Search or exclude a specific type of file (extension)
+
+	Ignore case in the pattern
+
+	Match a whole word
+
+	Stops after finding first match
+
+	Only print filenames
+
+	Recursive search
+
+	Highlight word in a list from other programs
+
+	Always see the results in the same order (alphabetically)
+
+	Display non-matching lines
+
+	WTF
+
+
+   Config File .ackrc
+
+	--ackrc
+           Specifies an ackrc file to load after all others; see "ACKRC LOCATION
+           SEMANTICS".
+
+        --create-ackrc
+           Dumps the default ack-grep options to standard output.  This is useful for
+           when you want to customize the defaults.
+
+	--[no]env
+           --noenv disables all environment processing. No .ackrc is read and all
+           environment variables are ignored. By default, ack-grep considers .ackrc and
+           settings in the environment.
+
+
+   Modify, add or delete types
+
+	--type-add TYPE:FILTER:FILTERARGS
+           Files with the given FILTERARGS applied to the given FILTER are recognized
+           as being of (the existing) type TYPE.  See also "Defining your own types".
+
+       	--type-set TYPE:FILTER:FILTERARGS
+           Files with the given FILTERARGS applied to the given FILTER are recognized
+           as being of type TYPE. This replaces an existing definition for type TYPE.
+           See also "Defining your own types".
+
+	--type-del TYPE
+           The filters associated with TYPE are removed from Ack, and are no longer
+           considered for searches.
+
+
+   Display context around the results
+
+	-A NUM, --after-context=NUM
+           Print NUM lines of trailing context after matching lines.
+
+        -B NUM, --before-context=NUM
+           Print NUM lines of leading context before matching lines.
+
+	-C [NUM], --context[=NUM]
+           Print NUM lines (default 2) of context around matching lines
+
+
+   Only count the results
+
+	-c, --count
+           Suppress normal output; instead print a count of matching lines for each
+           input file.  If -l is in effect, it will only show the number of lines for
+           each file that has lines matching.  Without -l, some line counts may be
+           zeroes.
+
+
+   Search in given file
+
+       	--files-from=FILE
+           The list of files to be searched is specified in FILE.  The list of
+           files are separated by newlines.  If FILE is "-", the list is
+           loaded from standard input.
+
+
+   Dry run on which files will be searched
+
+        -f  Only print the files that would be searched, without actually doing any
+           searching.  PATTERN must not be specified, or it will be taken as a path to
+           search.
+	   (If ack-grep doesn't know what kind of file it is, ack-grep ignores the file.)
+
+
+   Search in the path and filenames
+
+	-g PATTERN
+           Print files where the relative path + filename matches PATTERN.  This option
+           can be combined with --color to make it easier to spot the match.
+
+
+   Display the list of known file extensions (type)
+
+	--help-types, --help=types
+           Print all known types.
+
+
+   Search or exclude a specific type of file (extension)
+
+	--type=[no]TYPE
+           Specify the types of files to include or exclude from a search.  TYPE is a
+           filetype, like perl or xml.  --type=perl can also be specified as --perl,
+           and --type=noperl can be done as --noperl.
+
+           If a file is of both type "foo" and "bar", specifying --foo and --nobar will
+           exclude the file, because an exclusion takes precedence over an inclusion.
+
+           Type specifications can be repeated and are ORed together.
+
+
+   Ignore case in the pattern
+
+	-i, --ignore-case
+           Ignore case distinctions in PATTERN
+
+
+   Match a whole word
+
+	-w, --word-regexp
+           Force PATTERN to match only whole words.  The PATTERN is wrapped with "\b"
+           metacharacters.
+
+
+   Stops after finding first match
+
+	 -1  Stops after reporting first match of any kind.  This is different from
+           --max-count=1 or -m1, where only one match per file is shown.  Also, -1
+           works with -f and -g, where -m does not.
+
+
+   Only print filenames
+
+        -l, --files-with-matches
+           Only print the filenames of matching files, instead of the matching text.
+
+        -L, --files-without-matches
+           Only print the filenames of files that do NOT match.
+
+
+   Recursive search
+
+        -n, --no-recurse
+           No descending into subdirectories.
+
+
+   Highlight word in a list from other programs
+
+	--passthru
+           Prints all lines, whether or not they match the expression.  Highlighting
+           will still work, though, so it can be used to highlight matches while still
+           seeing the entire file, as in:
+
+               # Watch a log file, and highlight a certain IP address
+               $ tail -f ~/access.log | ack-grep --passthru 123.45.67.89
+
+
+   Always see the results in the same order (alphabetically)
+
+	--sort-files
+           Sorts the found files lexicographically.  Use this if you want your file
+           listings to be deterministic between runs of ack-grep.
+
+
+   Display non-matching lines
+
+	-v, --invert-match
+           Invert match: select non-matching lines
+
+
+   WTF
+
+	--thpppt
+           Display the all-important Bill The Cat logo.  Note that the exact spelling
+           of --thpppppt is not important.  It's checked against a regular expression.
+
+       	--bar
+           Check with the admiral for traps.
+
+       	--cathy
+           Chocolate, Chocolate, Chocolate!
+
+
+
+
+
+
+

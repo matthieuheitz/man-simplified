@@ -1,0 +1,54 @@
+CTest man:
+
+Examples:
+
+	$ ctest -n	:	Run all the tests in the folder
+
+	$ ctest -N	:	List all the tests in the folder
+
+	$ ctest -N -R <regex>	:	List all the tests which names match <regex>
+
+	$ ctest -I start,end,stride,test#	:	Run the test number specified
+		
+			ex: ctest -I 1,3 : Run tests 1, 2 and 3
+
+
+Options:
+	
+	-N,--show-only
+		Disable actual execution of tests.
+
+	-j <jobs>, --parallel <jobs>
+		Run the tests in parallel using thegiven number of jobs.
+
+	-V,--verbose
+		Enable verbose output from tests.
+
+	-VV,--extra-verbose
+		Enable more verbose output from tests.
+
+	-Q,--quiet
+		Make ctest quiet.
+
+	-O <file>, --output-log <file>
+		Output to log file
+
+
+Other commands:
+
+	Pass a parameter to a test executable, for example "-I" for interactive testing:
+
+		- execute CTest with the test you want, with the option -V or -VV
+		- copy the command executed by ctest after "Test Command"
+		- add parameters you want to pass in the command line:
+		
+	example:
+	for: 	179: Test command: /home/matthieu/Projects/VesselView_project/VesselView-build-debug/S-bld/CTK-build/CTK-build/bin/CTKVisualizationVTKWidgetsCppTests "ctkVTKDataSetArrayComboBoxTest2"
+
+	command to execute: /home/matthieu/Projects/VesselView_project/VesselView-build-debug/S-bld/CTK-build/CTK-build/bin/CTKVisualizationVTKWidgetsCppTests "ctkVTKDataSetArrayComboBoxTest2" "-I"
+
+
+
+
+
+

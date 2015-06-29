@@ -1,0 +1,88 @@
+man for docker :
+
+ALL COMMANDS MUST BE PRECEDED BY "sudo" !!
+
+
+Commands:
+
+	$ docker run [OPTIONS] IMAGE [COMMAND] [ARG...]		:	Run a command in a new container
+
+		-t, --tty=false            Allocate a pseudo-TTY
+		-i, --interactive=false    Keep STDIN open even if not attached (run it in the foreground)
+
+			Ex: $ sudo docker run -t -i ubuntu:14.04 /bin/bash		
+
+		-d, --detach=false         Detached mode: run the container in the background and print the new container ID
+
+			Ex: $ sudo docker run -d ubuntu:14.04 /bin/sh -c "while true; do echo hello world; sleep 1; done"
+
+		-P, --publish-all=false    Publish all exposed ports to random ports on the host interfaces
+
+
+	$ docker ps			:	Display a list of the running containers
+
+		-l, --latest=false    Show only the latest created container, include non-running ones.
+		-a, --all=false       Show all containers. Only running containers are shown by default.
+
+	$ docker logs container_name	:	Display the stdout of the container called "container_name"
+
+		-f, --follow=false        Follow log output
+
+
+	$ docker stop container_name	:	Stop the container called "container_name"
+
+	
+	$ docker top container_name	:	Display the running processes of a container
+
+
+	$ docker inspect		:	Return low-level information on a container or image (JSON format)
+
+		-f, --format=""    Format the output using the given go template.
+
+			Ex: sudo docker inspect -f '{{ .NetworkSettings.IPAddress}}' focused_euclid
+
+
+	$ docker start container_name	:	Restart a stopped container
+
+		-a, --attach=false         Attach container's STDOUT and STDERR and forward all signals to the process
+		-i, --interactive=false    Attach container's STDIN
+
+	$ docker restart container_name	:	Restart a running container
+
+		-t, --time=10      Number of seconds to try to stop for before killing the container. Once killed it will then be restarted. Default is 10 seconds.
+
+
+	$ docker images			:	List images
+
+		-a, --all=false      Show all images (by default filter out the intermediate image layers)
+		-f, --filter=[]      Provide filter values (i.e., 'dangling=true')
+		-q, --quiet=false    Only show numeric IDs
+
+
+	$ docker commit [OPTIONS] CONTAINER [REPOSITORY[:TAG]]		:	Create a new image from a container's changes
+
+		-a, --author=""     Author (e.g., "John Hannibal Smith <hannibal@a-team.com>")
+		-m, --message=""    Commit message
+		-p, --pause=true    Pause container during commit
+
+
+
+	$ docker build [OPTIONS] PATH | URL | -		:	Build a new image from the source code at PATH
+	
+		-t, --tag=""         Repository name (and optionally a tag) to be applied to the resulting image in case of success
+		-f, --file=""        Name of the Dockerfile(Default is 'Dockerfile' at context root)
+		
+
+	$ docker tag [OPTIONS] IMAGE[:TAG] [REGISTRYHOST/][USERNAME/]NAME[:TAG]	:	Tag an image into a repository
+
+		-f, --force=false    Force
+			
+			Ex: sudo docker tag 8d1529581d79 ouruser/sinatra:v1
+
+
+
+
+
+
+
+

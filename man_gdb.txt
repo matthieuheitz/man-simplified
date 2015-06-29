@@ -1,0 +1,12 @@
+
+
+gdb monProgramme 	Charger le programme dans gdb
+run 			Lancer le programme
+print maVariable 	Afficher une variable
+break monFichier.ext : numero_de_ligne 
+			Définir un point d'arrêt dans le fichier 'monFichier.ext'
+			à la ligne 'numero_de_ligne'
+bt 			Afficher la liste d'appel
+next 			Exécuter une ligne (sans entrer dans la fonction)
+step 			Exécuter une ligne (entrer dans la fonction)
+quit 			Quitter gdb
